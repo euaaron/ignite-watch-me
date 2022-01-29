@@ -15,10 +15,10 @@ export function Content({ selectedGenre, selectedGenreId }: IContentProps) {
   useEffect(() => {
     api
       .get<MovieProps[]>(`movies/?Genre_id=${selectedGenreId}`)
-      .then((response: any) => {
+      .then((response) => {
         setMovies(response.data);
       });
-  });
+  }, [selectedGenreId]);
 
   return (
     <div className="container">
