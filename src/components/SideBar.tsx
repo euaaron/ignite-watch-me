@@ -5,12 +5,13 @@ interface ISideBarProps {
   genres: GenreResponseProps[];
   selectedGenreId: number;
   handleClickButton: (id: number) => void;
-  children?: React.ReactNode;
 }
 
-export function SideBar(props: ISideBarProps) {
-  const { genres, selectedGenreId } = props;
-
+export function SideBar({
+  genres,
+  selectedGenreId,
+  handleClickButton,
+}: ISideBarProps) {
   return (
     <nav className="sidebar">
       <span>
@@ -23,7 +24,7 @@ export function SideBar(props: ISideBarProps) {
             key={String(genre.id)}
             title={genre.title}
             iconName={genre.name}
-            onClick={() => props.handleClickButton(genre.id)}
+            onClick={() => handleClickButton(genre.id)}
             selected={selectedGenreId === genre.id}
           />
         ))}

@@ -7,9 +7,7 @@ interface IContentProps {
   movies: MovieProps[];
 }
 
-export function Content(props: IContentProps) {
-  const { selectedGenre, movies } = props;
-
+export function Content({ selectedGenre, movies }: IContentProps) {
   return (
     <div className="container">
       <header>
